@@ -264,9 +264,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📧 Contact
 
-**Your Name** - [GitHub](https://github.com/yourusername) - [LinkedIn](https://linkedin.com/in/yourprofile)
+**Ayush** - [GitHub](https://github.com/aayush-1o) - [LinkedIn](https://linkedin.com/in/yourprofile)
 
-Project Link: [https://github.com/yourusername/CortexGraph](https://github.com/yourusername/CortexGraph)
+Project Link: [https://github.com/aayush-1o/CortexGraph](https://github.com/aayush-1o/CortexGraph)
 
 ---
 
@@ -274,7 +274,7 @@ Project Link: [https://github.com/yourusername/CortexGraph](https://github.com/y
 
 **Built with ❤️ and AI**
 
-![Stars](https://img.shields.io/github/stars/yourusername/CortexGraph?style=social)
-![Forks](https://img.shields.io/github/forks/yourusername/CortexGraph?style=social)
+![Stars](https://img.shields.io/github/stars/aayush-1o/CortexGraph?style=social)
+![Forks](https://img.shields.io/github/forks/aayush-1o/CortexGraph?style=social)
 
 </div>
