@@ -272,8 +272,6 @@ Project Link: [https://github.com/aayush-1o/CortexGraph](https://github.com/aayu
 
 <div align="center">
 
-**Built with ❤️ and AI**
-
 ![Stars](https://img.shields.io/github/stars/aayush-1o/CortexGraph?style=social)
 ![Forks](https://img.shields.io/github/forks/aayush-1o/CortexGraph?style=social)
 
