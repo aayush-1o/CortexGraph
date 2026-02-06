@@ -1,0 +1,19 @@
+.graph-controls {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+    min-width: 280px;
+}
+
+.graph-controls .MuiToggleButton-root {
+    padding: 8px 12px;
+}
+
+.graph-controls .MuiFormControlLabel-label {
+    font-size: 0.875rem;
+}
+
+.graph-controls .MuiCheckbox-root {
+    padding: 4px;
+}
