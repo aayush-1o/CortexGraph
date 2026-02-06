@@ -264,7 +264,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📧 Contact
 
-**Ayush** - [GitHub](https://github.com/aayush-1o) - [LinkedIn](https://linkedin.com/in/yourprofile)
+**Ayush** - [GitHub](https://github.com/aayush-1o) - [LinkedIn](https://www.linkedin.com/in/ayushh-o1)
 
 Project Link: [https://github.com/aayush-1o/CortexGraph](https://github.com/aayush-1o/CortexGraph)
 
