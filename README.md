@@ -71,7 +71,7 @@ CortexGraph transforms scattered, unstructured data into an **intelligent, inter
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/CortexGraph.git
+   git clone https://github.com/aayush-1o/CortexGraph.git
    cd CortexGraph
    ```
 
