@@ -1,0 +1,6 @@
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    gap: 10px;
+}
