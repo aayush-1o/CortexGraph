@@ -11,7 +11,11 @@ import {
     FormControlLabel,
     Checkbox,
     Typography,
-    Divider
+    Divider,
+    Menu,
+    MenuItem,
+    ListItemIcon,
+    ListItemText,
 } from '@mui/material';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
@@ -20,6 +24,10 @@ import GridOnIcon from '@mui/icons-material/GridOn';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import DownloadIcon from '@mui/icons-material/Download';
+import ImageIcon from '@mui/icons-material/Image';
+import CodeIcon from '@mui/icons-material/Code';
+import DataObjectIcon from '@mui/icons-material/DataObject';
 import './GraphControls.css';
 
 const GraphControls = ({
@@ -29,9 +37,24 @@ const GraphControls = ({
     selectedTypes,
     onFilterChange,
     isFullscreen,
-    onToggleFullscreen
+    onToggleFullscreen,
+    onExport
 }) => {
     const [showFilters, setShowFilters] = React.useState(false);
+    const [exportAnchor, setExportAnchor] = React.useState(null);
+
+    const handleExportClick = (event) => {
+        setExportAnchor(event.currentTarget);
+    };
+
+    const handleExportClose = () => {
+        setExportAnchor(null);
+    };
+
+    const handleExport = (format) => {
+        onExport(format);
+        handleExportClose();
+    };
 
     const layoutOptions = [
         { value: 'force', icon: <BubbleChartIcon />, label: 'Force-Directed' },
@@ -85,6 +108,40 @@ const GraphControls = ({
                             <FilterListIcon />
                         </IconButton>
                     </Tooltip>
+
+                    {/* Export Button */}
+                    <Tooltip title="Export Graph">
+                        <IconButton
+                            onClick={handleExportClick}
+                            size="small"
+                        >
+                            <DownloadIcon />
+                        </IconButton>
+                    </Tooltip>
+
+                    {/* Export Menu */}
+                    <Menu
+                        anchorEl={exportAnchor}
+                        open={Boolean(exportAnchor)}
+                        onClose={handleExportClose}
+                    >
+                        <MenuItem onClick={() => handleExport('png')}>
+                            <ListItemIcon><ImageIcon fontSize="small" /></ListItemIcon>
+                            <ListItemText>Export as PNG</ListItemText>
+                        </MenuItem>
+                        <MenuItem onClick={() => handleExport('svg')}>
+                            <ListItemIcon><CodeIcon fontSize="small" /></ListItemIcon>
+                            <ListItemText>Export as SVG</ListItemText>
+                        </MenuItem>
+                        <MenuItem onClick={() => handleExport('json')}>
+                            <ListItemIcon><DataObjectIcon fontSize="small" /></ListItemIcon>
+                            <ListItemText>Export as JSON</ListItemText>
+                        </MenuItem>
+                        <MenuItem onClick={() => handleExport('graphml')}>
+                            <ListItemIcon><AccountTreeIcon fontSize="small" /></ListItemIcon>
+                            <ListItemText>Export as GraphML</ListItemText>
+                        </MenuItem>
+                    </Menu>
                 </Box>
 
                 {/* Filter Panel */}

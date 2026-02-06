@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import GraphControls from './GraphControls';
+import { exportAsPNG, exportAsSVG, exportAsJSON, exportAsGraphML } from '../utils/exportUtils';
 import './GraphVisualization.css';
 
 const GraphVisualization = ({ data, onNodeClick }) => {
@@ -16,6 +17,34 @@ const GraphVisualization = ({ data, onNodeClick }) => {
     const colorScale = d3.scaleOrdinal()
         .domain(['PERSON', 'ORG', 'GPE', 'DATE', 'PRODUCT', 'EVENT', 'WORK_OF_ART', 'LOC', 'MONEY'])
         .range(['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B739']);
+
+    // Handle export
+    const handleExport = async (format) => {
+        try {
+            const timestamp = new Date().toISOString().split('T')[0];
+            const filename = `cortexgraph-${timestamp}`;
+
+            switch (format) {
+                case 'png':
+                    await exportAsPNG(svgRef.current, filename);
+                    break;
+                case 'svg':
+                    exportAsSVG(svgRef.current, filename);
+                    break;
+                case 'json':
+                    exportAsJSON(data, filename);
+                    break;
+                case 'graphml':
+                    exportAsGraphML(data, filename);
+                    break;
+                default:
+                    console.error('Unknown export format:', format);
+            }
+        } catch (error) {
+            console.error('Export failed:', error);
+            alert('Export failed. Please try again.');
+        }
+    };
 
     // Extract entity types from data
     useEffect(() => {
@@ -350,6 +379,7 @@ const GraphVisualization = ({ data, onNodeClick }) => {
                 onFilterChange={handleFilterChange}
                 isFullscreen={isFullscreen}
                 onToggleFullscreen={toggleFullscreen}
+                onExport={handleExport}
             />
             <svg ref={svgRef} className="graph-svg"></svg>
             {(!data || !data.nodes || data.nodes.length === 0) && (
